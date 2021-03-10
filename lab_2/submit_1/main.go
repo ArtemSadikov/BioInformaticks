@@ -10,7 +10,7 @@ type GenomeRepeats struct {
 	repeats int
 }
 
-func isExist(genomeRepeats []GenomeRepeats, finding string) int {
+func getPositionIndex(genomeRepeats []GenomeRepeats, finding string) int {
 	if len(genomeRepeats) == 0 {
 		return -1
 	}
@@ -26,7 +26,7 @@ func isExist(genomeRepeats []GenomeRepeats, finding string) int {
 func getRepeats(genomeRepeats *[]GenomeRepeats, genome string, finding string) {
 	var findingLen int = len(finding)
 	var res GenomeRepeats = GenomeRepeats{genome: finding, repeats: 0}
-	var findingIndex int = isExist(*genomeRepeats, finding)
+	var findingIndex int = getPositionIndex(*genomeRepeats, finding)
 	if findingIndex == -1 {
 		for i := 0; i < len(genome)-findingLen+1; i++ {
 			if genome[i:i+findingLen] == finding {
